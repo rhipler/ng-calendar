@@ -1,0 +1,40 @@
+<div class="container">
+
+  <div class="row mb-3">
+    <div class="col"></div>
+    <div class="col-auto">
+      <a [routerLink]="['/monthly', prevMonth.getFullYear(),prevMonth.getMonth() + 1] " class="btn btn-primary"> &lt; </a>
+      {{monthDate | date : ' MMMM  yyyy'}}
+      <a routerLink="/monthly/{{nextMonth.getFullYear()}}/{{nextMonth.getMonth() + 1}}" class="btn btn-primary"> &gt;</a>
+    </div>
+    <div class="col-auto">
+      <div class="btn-group" role="group">
+        <button disabled class="btn btn-primary">Month</button>
+        <a [routerLink]="['/weekly',weekYear,weekMonth + 1,weekDay]" class="btn btn-secondary">Week</a>
+      </div>
+    </div>
+
+    <div class="col"></div>
+  </div>
+
+
+  <div class="row">
+    <table class="month">
+      <ng-container *ngFor="let i of [0,1,2,3,4,5]" >
+        <tr *ngIf="days.length > i*7">
+
+          <td *ngFor="let day of days | slice : i*7 : (i+1)*7" class="col-day"
+              [class.monthoth]="day.date.getMonth() != monthDate.getMonth()" [class.selected]="selected==day.date"
+              [class.sunday]="day.date.getDay()==0" [class.sat]="day.date.getDay()==6"
+              (click)="dayselected(day.date)">  {{day.date | date : 'dd' }}
+          </td>
+
+        </tr>
+      </ng-container>
+    </table>
+
+  </div>
+
+
+
+</div>

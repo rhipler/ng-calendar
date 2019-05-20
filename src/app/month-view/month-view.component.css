@@ -1,0 +1,17 @@
+table.month {
+  width: 100%;
+}
+
+.col-day {
+  width: 14%;
+  border: 1px solid #555555;
+  vertical-align: top;
+  height: 80px;
+}
+.col-day.selected {
+  background: #d8d8d8;
+}
+.monthoth {
+  border: 1px solid #999999;
+  background: #bbbbbb;
+}
