@@ -1,0 +1,53 @@
+
+<div class="container mb-5">
+
+  <div class="row mb-3">
+    <div class="col"></div>
+    <div class="col-auto">
+      <a [routerLink]="['/week/', prevWeek.getFullYear(), prevWeek.getMonth()+1, prevWeek.getDate()] " class="btn btn-primary"> &lt; </a>
+
+      <a [routerLink]="['/week/', nextWeek.getFullYear(),nextWeek.getMonth()+1,nextWeek.getDate()]" class="btn btn-primary"> &gt;</a>
+    </div>
+    <div class="col-auto">
+
+      <div class="btn-group" role="group">
+        <a [routerLink]="['/month', weekdate.getFullYear(), weekdate.getMonth() + 1]"  class="btn btn-secondary">Month</a>
+        <button disabled  class="btn btn-primary">Week</button>
+      </div>
+    </div>
+    <div class="col"></div>
+  </div>
+
+
+  <table class="weekview">
+
+    <tr>
+      <th width="2%" class="col-time-header"></th>
+      <th *ngFor="let day of days" class="" [class.sunday]="day.date.getDay()==0"
+          [class.sat]="day.date.getDay()==6" width="14%">
+        {{day.date | date : 'E LLL dd'}}
+      </th>
+    </tr>
+
+    <tr>
+      <td></td>
+      <td>
+      </td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+
+    <tr *ngFor="let hour of  hours">
+      <td class="col-time">{{hour}}</td>
+
+      <td *ngFor="let day of days">
+
+      </td>
+    </tr>
+  </table>
+
+</div>

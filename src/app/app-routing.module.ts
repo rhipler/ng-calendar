@@ -5,8 +5,10 @@ import {WeekViewComponent} from './week-view/week-view.component';
 
 const routes: Routes = [
   {path: '', component: MonthViewComponent},
-  {path: 'monthly', component: MonthViewComponent},
-  {path: 'monthly/:year/:month', component: MonthViewComponent}
+  {path: 'month', component: MonthViewComponent},
+  {path: 'month/:year/:month', component: MonthViewComponent},
+  {path: 'week', component: WeekViewComponent},
+  {path: 'week/:year/:month/:day', component: WeekViewComponent}
 ];
 
 @NgModule({

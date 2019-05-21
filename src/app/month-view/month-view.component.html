@@ -3,14 +3,14 @@
   <div class="row mb-3">
     <div class="col"></div>
     <div class="col-auto">
-      <a [routerLink]="['/monthly', prevMonth.getFullYear(),prevMonth.getMonth() + 1] " class="btn btn-primary"> &lt; </a>
+      <a [routerLink]="['/month', prevMonth.getFullYear(),prevMonth.getMonth() + 1] " class="btn btn-primary"> &lt; </a>
       {{monthDate | date : ' MMMM  yyyy'}}
-      <a routerLink="/monthly/{{nextMonth.getFullYear()}}/{{nextMonth.getMonth() + 1}}" class="btn btn-primary"> &gt;</a>
+      <a routerLink="/month/{{nextMonth.getFullYear()}}/{{nextMonth.getMonth() + 1}}" class="btn btn-primary"> &gt;</a>
     </div>
     <div class="col-auto">
       <div class="btn-group" role="group">
         <button disabled class="btn btn-primary">Month</button>
-        <a [routerLink]="['/weekly',weekYear,weekMonth + 1,weekDay]" class="btn btn-secondary">Week</a>
+        <a [routerLink]="['/week',weekYear,weekMonth + 1,weekDay]" class="btn btn-secondary">Week</a>
       </div>
     </div>
 
@@ -34,7 +34,6 @@
     </table>
 
   </div>
-
-
+  
 
 </div>

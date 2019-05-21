@@ -1,0 +1,15 @@
+table.weekview th {
+  border: 1px solid;
+}
+table.weekview td {
+  border: 1px solid;
+  position: relative;
+}
+
+.col-time {
+  vertical-align: top;
+  height: 40px;
+}
+.col-time-header {
+  height: 60px;
+}
