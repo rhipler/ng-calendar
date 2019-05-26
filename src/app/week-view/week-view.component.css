@@ -1,9 +1,11 @@
 table.weekview th {
   border: 1px solid;
+  padding: 2px;
 }
 table.weekview td {
   border: 1px solid;
   position: relative;
+  padding: 2px;
 }
 
 .col-time {
@@ -13,3 +15,25 @@ table.weekview td {
 .col-time-header {
   height: 60px;
 }
+
+.event {
+  background-color: #990000;
+}
+
+.event:hover {
+  background-color: #555555;
+}
+
+.wholeday-event {
+  width: 100%;
+  padding: 4px;
+  margin-bottom: 2px;
+}
+
+.hour-event {
+  position: absolute;
+  z-index:2;
+  background-color: #990000;
+  overflow: hidden;
+}
+

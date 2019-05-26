@@ -31,21 +31,25 @@
 
     <tr>
       <td></td>
-      <td>
+      <td *ngFor="let day of days">
+          <div *ngFor="let ev of day.wholeDayEvents" class="event wholeday-event" >
+            {{ev.name}}
+          </div>
       </td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
     </tr>
+
 
     <tr *ngFor="let hour of  hours">
       <td class="col-time">{{hour}}</td>
 
       <td *ngFor="let day of days">
+        <ng-container *ngFor="let ev of day.events index as i">
 
+          <div class="event hour-event" [style] = "eventPosition(ev, i)" *ngIf="ev.begin.getHours()==hour">
+            {{ev.name}}
+          </div>
+
+        </ng-container>
       </td>
     </tr>
   </table>
