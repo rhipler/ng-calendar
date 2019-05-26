@@ -15,3 +15,11 @@ table.month {
   border: 1px solid #999999;
   background: #bbbbbb;
 }
+
+.event {
+  background-color: #990000;
+  width: 50%;
+}
+.event.wholeday {
+  width: 100%;
+}

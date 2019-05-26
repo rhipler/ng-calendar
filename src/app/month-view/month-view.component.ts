@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {CalendarEvent} from '../calendar-event';
+import {CalendarService} from '../calendar.service';
+import {WeekViewComponent} from '../week-view/week-view.component';
 
 @Component({
   selector: 'app-month-view',
@@ -20,13 +22,11 @@ export class MonthViewComponent implements OnInit {
   private weekDay: number;
 
 
-
   // days of the month, shown in the view
-  private days: {date: Date, event: CalendarEvent}[] = new Array();
+  private days: {date: Date, events: CalendarEvent[], wholeDayEvents: CalendarEvent[] }[] = Array();
 
 
-
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private calendarService: CalendarService) { }
 
   ngOnInit() {
     console.log('init  monthView');
@@ -57,27 +57,47 @@ export class MonthViewComponent implements OnInit {
 
   setDays() {
 
-    this.days = new Array();
+    this.days = Array();
 
     const fillDaysBefore = (this.monthDate.getDay() + 6) % 7;
     for (let i = fillDaysBefore; i > 0; i--) {
       const tmpdate = new Date(this.monthDate.getFullYear(), this.monthDate.getMonth(), this.monthDate.getDate() - i);
-      this.days.push({date: tmpdate, event: null});
+      this.days.push({date: tmpdate, events: Array(), wholeDayEvents: Array()});
     }
 
 
     let loopDate = new Date(this.monthDate.getFullYear(), this.monthDate.getMonth());
     while (loopDate.getMonth() === this.monthDate.getMonth() ) {
-      this.days.push({date: new Date(loopDate), event: null});
+      this.days.push({date: new Date(loopDate), events: Array(), wholeDayEvents: Array()});
       loopDate.setDate(loopDate.getDate() + 1);
     }
 
 
     const fillDaysAfter = (8 - loopDate.getDay()) % 7;
     for (let i = 0; i < fillDaysAfter; i++) {
-      this.days.push({date: new Date(loopDate), event: null});
+      this.days.push({date: new Date(loopDate), events: Array(), wholeDayEvents: Array()});
       loopDate.setDate(loopDate.getDate() + 1);
     }
+
+    const from = new Date(this.monthDate.getFullYear(), this.monthDate.getMonth(), 1);
+    const to = new Date(this.monthDate.getFullYear(), this.monthDate.getMonth() + 1, 1);
+
+
+    this.calendarService.getEvents(from, to).subscribe( events => {
+
+      events.forEach(event => {
+          const theDay = this.days.find(day => WeekViewComponent.sameday(event.begin, day.date));
+          if (theDay) {
+            if (event.wholeDay) {
+              theDay.wholeDayEvents.push(event);
+            } else {
+              theDay.events.push(event);
+            }
+          }
+        }
+      );
+
+    });
 
   }
 

@@ -27,6 +27,10 @@
               [class.monthoth]="day.date.getMonth() != monthDate.getMonth()" [class.selected]="selected==day.date"
               [class.sunday]="day.date.getDay()==0" [class.sat]="day.date.getDay()==6"
               (click)="dayselected(day.date)">  {{day.date | date : 'dd' }}
+
+            <div *ngFor="let event of day.wholeDayEvents" class="event wholeday mb-1" > {{event.name}} </div>
+
+            <div *ngFor="let event of day.events" class="event mb-1" > {{event.name}}</div>
           </td>
 
         </tr>
