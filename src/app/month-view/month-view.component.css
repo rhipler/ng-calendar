@@ -20,6 +20,16 @@ table.month {
   background-color: #990000;
   width: 50%;
 }
+
+.event:hover {
+  background-color: #555555;
+}
+
 .event.wholeday {
   width: 100%;
+}
+.event a {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
 }

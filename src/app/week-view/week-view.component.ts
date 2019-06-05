@@ -90,8 +90,9 @@ export class WeekViewComponent implements OnInit {
   public eventPosition(event: CalendarEvent, i: number) {
 
     const minutes = (event.end.valueOf() - event.begin.valueOf() ) / 60_000;
+    const begin = event.begin.getMinutes() * (40 / 60);
 
-    return this.sanitizer.bypassSecurityTrustStyle('height: ' + minutes * (40 / 60) + 'px; width: 25%; left: ' + (i * 25) + '%');
+    return this.sanitizer.bypassSecurityTrustStyle('height: ' + minutes * (40 / 60) + 'px; width: 25%; left: ' + (i * 25) + '%; top: ' + begin + 'px');
   }
 
 
