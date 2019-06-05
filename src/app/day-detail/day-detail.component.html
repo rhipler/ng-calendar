@@ -3,3 +3,7 @@
 </p>
 
 <p> {{day | date}} </p>
+
+<p *ngFor="let event of wholeDayEvents"> {{event.name}} </p>
+
+<p *ngFor="let event of events">  {{event.name}} {{event.begin | date: 'shortTime'}} - {{event.end | date : 'shortTime'}} </p>

@@ -47,6 +47,7 @@ export class MonthViewComponent implements OnInit {
         this.weekYear = this.monthDate.getFullYear();
         this.weekMonth = this.monthDate.getMonth();
         this.weekDay = 1;
+        this.selected = undefined;
 
         this.setDays();
       }
