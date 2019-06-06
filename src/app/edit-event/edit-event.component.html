@@ -1,7 +1,9 @@
 <div class="container">
 
-  <p>
-    {{event.name}}
+  <p *ngIf="event.id==0"> New Calendar Event  {{date | date}} </p>
+
+  <p *ngIf="event.id > 0">
+    {{event.name}}  {{event.begin | date}}
   </p>
 
   <form>

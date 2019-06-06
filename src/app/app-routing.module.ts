@@ -10,7 +10,8 @@ const routes: Routes = [
   {path: 'month/:year/:month', component: MonthViewComponent},
   {path: 'week', component: WeekViewComponent},
   {path: 'week/:year/:month/:day', component: WeekViewComponent},
-  {path: 'event/:id', component: EditEventComponent}
+  {path: 'event/:id', component: EditEventComponent},
+  {path: 'addevent/:year/:month/:day', component: EditEventComponent}
 ];
 
 @NgModule({

@@ -18,12 +18,11 @@ export class DayDetailComponent implements OnInit, OnChanges {
   constructor(private calendarService: CalendarService) {}
 
   ngOnInit() {
-    console.log('dayDetail init ' + this.day);
   }
 
   ngOnChanges(changes: SimpleChanges) {
 
-    console.log('onChanges');
+    // console.log('onChanges');
 
     for (let propName in changes) {
       if (propName === 'day') {
@@ -39,7 +38,6 @@ export class DayDetailComponent implements OnInit, OnChanges {
           this.calendarService.getEvents(from, to).subscribe(events => {
 
             events.forEach(event => {
-              console.log('Event ' + event.name);
               if (event.wholeDay) {
                 this.wholeDayEvents.push(event);
               } else {

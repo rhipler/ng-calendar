@@ -42,3 +42,13 @@ table.weekview td {
   height: 100%;
   width: 100%;
 }
+
+.addlink {
+  padding: 2px 6px;
+  color: #000000;
+  background-color: #33cc44;
+}
+.addlink:hover {
+  background-color: #00ff00;
+  text-decoration: none;
+}

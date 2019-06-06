@@ -110,7 +110,6 @@ export class MonthViewComponent implements OnInit {
       this.weekMonth = date.getMonth();
       this.weekDay = date.getDate();
     }
-    console.log('day selected ' + date);
   }
 
 

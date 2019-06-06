@@ -35,6 +35,8 @@
           <div *ngFor="let ev of day.wholeDayEvents" class="event wholeday-event" >
             <a [routerLink]="['/event',ev.id]">{{ev.name}}</a>
           </div>
+
+        <a class="addlink" [routerLink]="['/addevent',day.date.getFullYear(),day.date.getMonth()+1,day.date.getDate()]" >+</a>
       </td>
     </tr>
 

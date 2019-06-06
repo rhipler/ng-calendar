@@ -21,6 +21,7 @@ export class EditEventComponent implements OnInit {
 
   ngOnInit() {
 
+
     this.route.paramMap.subscribe( params => {
       if (params.get('id')) {
         const id = +params.get('id');
@@ -33,6 +34,15 @@ export class EditEventComponent implements OnInit {
           }
         );
 
+      } else {
+        if ( params.get('year') && params.get('month') && params.get('day') ) {
+          // create new
+          this.date = new Date( +params.get('year'), +params.get('month') - 1, +params.get('day'));
+          this.event = new CalendarEvent();
+          this.event.id = 0;
+          this.begintime = '08:00';
+          this.endtime = '11:00';
+        };
       }
     });
 
@@ -57,7 +67,11 @@ export class EditEventComponent implements OnInit {
       this.event.end = new Date(this.date.getFullYear(), this.date.getMonth(), this.date.getDate(), hours, minutes);
     }
 
-    this.calendarService.updateEvent(this.event);
+    if (this.event.id > 0) {
+      this.calendarService.updateEvent(this.event);
+    } else {
+      this.calendarService.addEvent(this.event);
+    }
 
     this.goBack();
   }

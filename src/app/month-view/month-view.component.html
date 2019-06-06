@@ -26,7 +26,7 @@
           <td *ngFor="let day of days | slice : i*7 : (i+1)*7" class="col-day"
               [class.monthoth]="day.date.getMonth() != monthDate.getMonth()" [class.selected]="selected==day.date"
               [class.sunday]="day.date.getDay()==0" [class.sat]="day.date.getDay()==6"
-              (click)="dayselected(day.date)">  {{day.date | date : 'dd' }}
+              (click)="dayselected(day.date)">  {{day.date | date : 'dd' }} <a class="addlink" [routerLink]="['/addevent',day.date.getFullYear(),day.date.getMonth()+1,day.date.getDate()]" >+</a>
 
             <div *ngFor="let event of day.wholeDayEvents" class="event wholeday mb-1" > <a [routerLink]="['/event',event.id]" > {{event.name}}</a> </div>
 
