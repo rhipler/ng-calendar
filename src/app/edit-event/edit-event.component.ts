@@ -11,10 +11,10 @@ import {Location} from '@angular/common';
 })
 export class EditEventComponent implements OnInit {
 
-  private event: CalendarEvent;
-  private begintime: string;
-  private endtime: string;
-  private date: Date;
+  event: CalendarEvent;
+  begintime: string;
+  endtime: string;
+  date: Date;
 
   constructor(private route: ActivatedRoute, private router: Router, private location: Location, private calendarService: CalendarService) {
   }

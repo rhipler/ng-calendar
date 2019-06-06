@@ -10,10 +10,10 @@ import {CalendarEvent} from '../calendar-event';
 export class DayDetailComponent implements OnInit, OnChanges {
 
 
-  @Input() private day: Date;
+  @Input() day: Date;
 
-  private wholeDayEvents: CalendarEvent[];
-  private events: CalendarEvent[];
+  wholeDayEvents: CalendarEvent[];
+  events: CalendarEvent[];
 
   constructor(private calendarService: CalendarService) {}
 

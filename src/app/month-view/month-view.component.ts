@@ -12,14 +12,14 @@ import {WeekViewComponent} from '../week-view/week-view.component';
 export class MonthViewComponent implements OnInit {
 
 
-  private monthDate: Date;
-  private prevMonth: Date;
-  private nextMonth: Date;
+  monthDate: Date;
+  prevMonth: Date;
+  nextMonth: Date;
 
-  private selected: Date;
-  private weekYear: number;
-  private weekMonth: number;
-  private weekDay: number;
+  selected: Date;
+  weekYear: number;
+  weekMonth: number;
+  weekDay: number;
 
 
   // days of the month, shown in the view

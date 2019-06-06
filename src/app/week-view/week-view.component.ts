@@ -12,14 +12,14 @@ import {DomSanitizer} from '@angular/platform-browser';
 export class WeekViewComponent implements OnInit {
 
 
-  private weekdate: Date;
-  private prevWeek: Date;
-  private nextWeek: Date;
+  weekdate: Date;
+  prevWeek: Date;
+  nextWeek: Date;
 
 
-  private days: {date: Date, events: CalendarEvent[], wholeDayEvents: CalendarEvent[]}[] = Array();
+  days: {date: Date, events: CalendarEvent[], wholeDayEvents: CalendarEvent[]}[] = Array();
 
-  private hours: number[];
+  hours: number[];
 
 
   public static sameday(date1: Date, date2: Date) {
