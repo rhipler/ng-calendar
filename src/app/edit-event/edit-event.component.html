@@ -1,12 +1,12 @@
 <div class="container">
 
-  <p *ngIf="event.id==0"> New Calendar Event  {{date | date}} </p>
+  <p *ngIf="event?.id==0"> New Calendar Event  {{date | date}} </p>
 
-  <p *ngIf="event.id > 0">
+  <p *ngIf="event?.id > 0">
     {{event.name}}  {{event.begin | date}}
   </p>
 
-  <form>
+  <form *ngIf="event" >
     <div class="form-row form-group">
       <div class="col-2"><label for="name" class="col-form-label">Name: </label></div>
       <div class="col"><input class="form-control" type="text" name="name" id="name" [(ngModel)]="event.name" required/>

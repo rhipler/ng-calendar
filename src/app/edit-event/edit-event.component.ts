@@ -25,12 +25,14 @@ export class EditEventComponent implements OnInit {
     this.route.paramMap.subscribe( params => {
       if (params.get('id')) {
         const id = +params.get('id');
-        this.calendarService.getEvent(id).subscribe( event => {
-            this.event = event;
-            this.date = event.begin;
+        this.calendarService.getEvent(id).subscribe(event => {
+            if (event) {
+              this.event = event;
+              this.date = event.begin;
 
-            this.begintime = ('0' + event.begin.getHours()).slice(-2) + ':' + ('0' + event.begin.getMinutes() ).slice(-2);
-            this.endtime = ('0' + event.end.getHours()).slice(-2) + ':' + ('0' + event.end.getMinutes()).slice(-2);
+              this.begintime = ('0' + event.begin.getHours()).slice(-2) + ':' + ('0' + event.begin.getMinutes()).slice(-2);
+              this.endtime = ('0' + event.end.getHours()).slice(-2) + ':' + ('0' + event.end.getMinutes()).slice(-2);
+            }
           }
         );
 
